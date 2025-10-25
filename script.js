@@ -1,13 +1,31 @@
-const excusas = [
-  "Se me olvidó la tarea.",
-  "No pasaba el bus.",
-  "Me quedé dormido.",
-  "Mi perro se la comió.",
-  "Había mucho tráfico.",
-  "No me sentía bien."
-];
+function generateExcuse() {
+  let who = ["The dog", "My grandma", "The mailman", "My bird"];
+  let action = ["ate", "peed", "crushed", "broke"];
+  let what = ["my homework", "my phone", "the car"];
+  let when = [
+    "before the class",
+    "when I was sleeping",
+    "while I was exercising",
+    "during my lunch",
+    "while I was praying"
+  ];
 
-document.getElementById("btn").addEventListener("click", function() {
-  const random = Math.floor(Math.random() * excusas.length);
-  document.getElementById("excusa").textContent = excusas[random];
-});
+ 
+  let whoIndex = Math.floor(Math.random() * who.length);
+  let actionIndex = Math.floor(Math.random() * action.length);
+  let whatIndex = Math.floor(Math.random() * what.length);
+  let whenIndex = Math.floor(Math.random() * when.length);
+
+  
+  let excuse =
+    who[whoIndex] +
+    " " +
+    action[actionIndex] +
+    " " +
+    what[whatIndex] +
+    " " +
+    when[whenIndex];
+
+ 
+  document.getElementById("excuse").innerHTML = excuse;
+}

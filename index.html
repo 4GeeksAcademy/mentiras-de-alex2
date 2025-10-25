@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Generador de excusas</title>
+  <meta charset="UTF-8" />
+  <title>Excuse Generator</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="generateExcuse()">
   <h1>Generador de excusas</h1>
-  <button id="btn">Generar excusa</button>
-  <p id="excusa">Aquí saldrá tu excusa...</p>
+  <p id="excuse">Aquí debería salir una excusa aleatoria…</p>
 
-  <script src="script.js"></script>
+  <script>
+    function generateExcuse() {
+      let who = ["The dog", "My grandma", "The mailman", "My bird"];
+      let action = ["ate", "peed", "crushed", "broke"];
+      let what = ["my homework", "my phone", "the car"];
+      let when = [
+        "before the class",
+        "when I was sleeping",
+        "while I was exercising",
+        "during my lunch",
+        "while I was praying"
+      ];
+
+      let excuse =
+        who[Math.floor(Math.random() * who.length)] + " " +
+        action[Math.floor(Math.random() * action.length)] + " " +
+        what[Math.floor(Math.random() * what.length)] + " " +
+        when[Math.floor(Math.random() * when.length)];
+
+      document.getElementById("excuse").innerHTML = excuse;
+    }
+  </script>
 </body>
 </html>
